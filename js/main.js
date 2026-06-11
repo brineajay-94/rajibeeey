@@ -37,13 +37,25 @@ function animateProgress(el) {
   el.style.width = percent + '%';
 }
 
-// Intersection Observer
+// Animate timeline items with stagger
+function animateTimeline() {
+  const items = document.querySelectorAll('.timeline-item');
+  items.forEach((item, i) => {
+    const rect = item.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    if (rect.top < windowHeight - 80 && !item.classList.contains('visible')) {
+      setTimeout(() => {
+        item.classList.add('visible');
+      }, i * 200);
+    }
+  });
+}
+
+// Intersection Observer for counters/progress
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Animate counters
       entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
-      // Animate progress fills
       entry.target.querySelectorAll('[data-percent]').forEach(animateProgress);
     }
   });
@@ -59,3 +71,8 @@ setTimeout(() => {
   document.querySelectorAll('.hero [data-percent]').forEach(animateProgress);
   document.querySelectorAll('.hero [data-target]').forEach(animateCounter);
 }, 300);
+
+// Timeline animation on scroll
+window.addEventListener('scroll', animateTimeline);
+window.addEventListener('load', animateTimeline);
+animateTimeline();
