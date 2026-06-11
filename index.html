@@ -26,23 +26,43 @@
 </head>
 <body>
 
-  <!-- ===== HEADER / HERO ===== -->
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <img src="assets/images/logo.png" alt="Rajibeey Logo" class="nav-logo" />
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#timeline">Journey</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#social">Social</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO (Compact) ===== -->
   <header class="hero">
-    <div class="hero-overlay"></div>
-    <nav class="navbar">
-      <img src="assets/images/logo.png" alt="Rajibeey Logo" class="nav-logo" />
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#videos">Videos</a></li>
-        <li><a href="#games">Games</a></li>
-        <li><a href="#social">Social</a></li>
-      </ul>
-    </nav>
     <div class="hero-content">
       <img src="assets/images/logo.png" alt="Rajibeey Logo" class="hero-logo" />
       <h1 class="hero-title">Rajibeey</h1>
       <p class="hero-tagline">18 Year Old Nepali Gamer from Udayapur, Gaighat</p>
       <p class="hero-sub">Roblox &bull; Minecraft &bull; Free Fire</p>
+
+      <!-- Animated Counter -->
+      <div class="hero-counter">
+        <span class="counter-number" data-target="5500">0</span>
+        <span class="counter-label">Subscribers</span>
+      </div>
+
+      <!-- Progress to 10K -->
+      <div class="hero-progress-wrapper">
+        <div class="hero-progress-label">
+          <span>0</span>
+          <span>Goal: 10K</span>
+        </div>
+        <div class="hero-progress-bar">
+          <div class="hero-progress-fill" data-percent="55"></div>
+        </div>
+      </div>
+
       <div class="hero-cta">
         <a href="https://youtube.com/@rajibeeey?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">Subscribe on YouTube</a>
         <a href="#videos" class="btn btn-outline">Watch Videos</a>
@@ -50,7 +70,7 @@
     </div>
   </header>
 
-  <!-- ===== INTRODUCTION / ABOUT ===== -->
+  <!-- ===== ABOUT + STATS ===== -->
   <section id="about" class="section about-section">
     <div class="container">
       <h2 class="section-title">Who is Rajibeey?</h2>
@@ -62,23 +82,67 @@
           I love creating gaming content, doing fruit giveaways, and building a community
           of fellow gamers from Nepal and around the world.
         </p>
-        <p>
-          With over <strong>5.5K subscribers</strong> on YouTube, I'm on a journey to grow
-          my channel and bring epic gaming moments to you. Join the squad!
-        </p>
+
+        <!-- Stats Grid -->
         <div class="about-stats">
-          <div class="stat">
-            <span class="stat-number">5.5K+</span>
+          <div class="stat-card">
+            <span class="stat-icon">📺</span>
+            <span class="stat-number" data-target="5500">0</span>
             <span class="stat-label">Subscribers</span>
           </div>
-          <div class="stat">
-            <span class="stat-number">52+</span>
+          <div class="stat-card">
+            <span class="stat-icon">💬</span>
+            <span class="stat-number" data-target="52">0</span>
             <span class="stat-label">Discord Members</span>
           </div>
-          <div class="stat">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Games Played</span>
+          <div class="stat-card">
+            <span class="stat-icon">🎬</span>
+            <span class="stat-number" data-target="128">0</span>
+            <span class="stat-label">Videos</span>
           </div>
+          <div class="stat-card">
+            <span class="stat-icon">🇳🇵</span>
+            <span class="stat-number">Nepal</span>
+            <span class="stat-label">Udayapur, Gaighat</span>
+          </div>
+        </div>
+
+        <!-- Channel Growth Bar -->
+        <div class="about-progress">
+          <div class="about-progress-label">
+            <span>Channel Growth</span>
+            <span>5.5K / 10K</span>
+          </div>
+          <div class="about-progress-bar">
+            <div class="about-progress-fill" data-percent="55"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHANNEL JOURNEY TIMELINE ===== -->
+  <section id="timeline" class="section timeline-section">
+    <div class="container">
+      <h2 class="section-title">Channel Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item active">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2024</span>
+          <span class="timeline-milestone">Started</span>
+          <span class="timeline-desc">Created the channel &amp; began uploading Blox Fruits content</span>
+        </div>
+        <div class="timeline-item active">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2025</span>
+          <span class="timeline-milestone">1K Subscribers</span>
+          <span class="timeline-desc">Hit first milestone &amp; started building the community</span>
+        </div>
+        <div class="timeline-item active">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2026</span>
+          <span class="timeline-milestone">5.5K Subscribers</span>
+          <span class="timeline-desc">Growing strong — next stop 10K! 🎯</span>
         </div>
       </div>
     </div>
@@ -143,25 +207,52 @@
       <h2 class="section-title">Games I Play</h2>
       <div class="games-grid">
         <div class="game-card">
-          <div class="game-icon" style="background: transparent;">
+          <div class="game-icon">
             <img src="assets/icons/roblox-social-logo.jpg" alt="Roblox" class="game-icon-img" />
           </div>
           <h3>Roblox</h3>
-          <p class="game-desc">Mainly Blox Fruits — grinding, PvP, fruit giveaways, and exploring new updates in the Roblox universe.</p>
+          <p class="game-desc">Mainly Blox Fruits — grinding, PvP, fruit giveaways, and exploring new updates.</p>
+          <div class="game-skill">
+            <div class="game-skill-label">
+              <span>Proficiency</span>
+              <span>85%</span>
+            </div>
+            <div class="game-skill-bar">
+              <div class="game-skill-fill" data-percent="85" style="background: linear-gradient(90deg, #e2231a, #ff6b35);"></div>
+            </div>
+          </div>
         </div>
         <div class="game-card">
-          <div class="game-icon" style="background: transparent;">
+          <div class="game-icon">
             <img src="assets/icons/minecraft-logo.png" alt="Minecraft" class="game-icon-img" />
           </div>
           <h3>Minecraft</h3>
-          <p class="game-desc">Building, surviving, and creating adventures in the blocky world of Minecraft with friends.</p>
+          <p class="game-desc">Building, surviving, and creating adventures in the blocky world with friends.</p>
+          <div class="game-skill">
+            <div class="game-skill-label">
+              <span>Proficiency</span>
+              <span>65%</span>
+            </div>
+            <div class="game-skill-bar">
+              <div class="game-skill-fill" data-percent="65" style="background: linear-gradient(90deg, #2d8c3c, #4caf50);"></div>
+            </div>
+          </div>
         </div>
         <div class="game-card">
-          <div class="game-icon" style="background: transparent;">
+          <div class="game-icon">
             <img src="assets/icons/freefire-logo.png" alt="Free Fire" class="game-icon-img" />
           </div>
           <h3>Free Fire</h3>
-          <p class="game-desc">Battle royale action, clutch plays, and squad gameplay in Free Fire — Nepal's favorite mobile game.</p>
+          <p class="game-desc">Battle royale action, clutch plays, and squad gameplay — Nepal's favorite mobile game.</p>
+          <div class="game-skill">
+            <div class="game-skill-label">
+              <span>Proficiency</span>
+              <span>70%</span>
+            </div>
+            <div class="game-skill-bar">
+              <div class="game-skill-fill" data-percent="70" style="background: linear-gradient(90deg, #ff6b35, #ff8c42);"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

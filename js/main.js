@@ -3,32 +3,59 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
-    navbar.style.background = 'rgba(10, 10, 15, 0.98)';
-    navbar.style.borderBottom = '1px solid rgba(0, 255, 136, 0.2)';
+    navbar.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.1)';
   } else {
-    navbar.style.background = 'rgba(10, 10, 15, 0.9)';
-    navbar.style.borderBottom = '1px solid rgba(0, 255, 136, 0.1)';
+    navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.06)';
   }
 });
 
-// Smooth reveal on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
+// Animate number counters
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  if (!target || el.dataset.animated) return;
+  el.dataset.animated = true;
 
+  let current = 0;
+  const increment = Math.ceil(target / 60);
+  const step = () => {
+    current += increment;
+    if (current >= target) {
+      el.textContent = target.toLocaleString();
+      return;
+    }
+    el.textContent = current.toLocaleString();
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// Animate progress bars
+function animateProgress(el) {
+  const percent = parseInt(el.dataset.percent);
+  if (!percent || el.dataset.animated) return;
+  el.dataset.animated = true;
+  el.style.width = percent + '%';
+}
+
+// Intersection Observer
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+      // Animate counters
+      entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+      // Animate progress fills
+      entry.target.querySelectorAll('[data-percent]').forEach(animateProgress);
     }
   });
-}, observerOptions);
+}, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll('.section').forEach(section => {
-  section.style.opacity = '0';
-  section.style.transform = 'translateY(30px)';
-  section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+// Observe sections with animations
+document.querySelectorAll('.hero, .about-section, .games-section').forEach(section => {
   observer.observe(section);
 });
+
+// Hero progress starts immediately since it's visible on load
+setTimeout(() => {
+  document.querySelectorAll('.hero [data-percent]').forEach(animateProgress);
+  document.querySelectorAll('.hero [data-target]').forEach(animateCounter);
+}, 300);
