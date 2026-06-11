@@ -629,13 +629,33 @@ img {
   box-shadow: var(--shadow-md);
 }
 
-.video-wrapper iframe {
+.video-wrapper-link {
+  display: block;
+  text-decoration: none;
+}
+
+.video-wrapper .video-thumb {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: cover;
+}
+
+.video-wrapper .video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-wrapper:hover .video-play-overlay {
+  opacity: 1;
 }
 
 .video-title {
