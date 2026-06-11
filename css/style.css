@@ -104,9 +104,18 @@ img {
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
   height: 36px;
-  width: auto;
-  border-radius: 6px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 900;
+  border-radius: 8px;
+  text-decoration: none;
+  user-select: none;
 }
 
 .nav-links {
@@ -173,13 +182,19 @@ img {
 }
 
 .hero-logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
   margin: 0 auto 1rem;
-  border: 3px solid var(--orange);
+  background: var(--orange);
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: 900;
+  border-radius: 20px;
   box-shadow: var(--shadow-md);
-  object-fit: cover;
+  user-select: none;
 }
 
 .hero-title {
@@ -738,11 +753,17 @@ img {
 }
 
 .footer-logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid var(--orange);
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 900;
+  border-radius: 10px;
+  user-select: none;
 }
 
 .footer-tagline {
